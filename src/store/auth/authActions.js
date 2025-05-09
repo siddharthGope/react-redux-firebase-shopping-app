@@ -61,7 +61,6 @@ export const logoutUser = (navigate) => async (dispatch) => {
     await signOut(auth);
     dispatch(setUser(null));
     navigate("/login");
-    alert("User signedOut");
   } catch (error) {
     dispatch(setError(error.message));
     console.error("Sign-out error:", error);

@@ -13,9 +13,17 @@ function Navigation() {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const productInCart = useSelector((state) => state.cart.cart.length)
-    console.log(productInCart);
+    const user = useSelector((state) => state.auth.user)
+    const userName = useSelector((state) => state.auth.user ? state.auth.user.displayName : '')
     const handleSubmit = () => {
         dispatch(logoutUser(navigate))
+    }
+
+    function firstName(userName) {
+        if (!userName) return ''
+
+        const fn = userName.split(" ")
+        return fn[0]
     }
 
     return (
@@ -35,18 +43,12 @@ function Navigation() {
                     >
                         Home
                     </Link>
-                    <Link
-                        to="/login"
-                        className="hover:text-gray-300 transition duration-200"
-                    >
-                        Login
-                    </Link>
-                    <Link
+                    {/* <Link
                         to="/register"
                         className="hover:text-gray-300 transition duration-200"
                     >
                         Register
-                    </Link>
+                    </Link> */}
                     <Link
                         to="/cart"
                         className="hover:text-gray-300 transition duration-200"
@@ -55,13 +57,30 @@ function Navigation() {
                     </Link>
                 </div>
 
-                {/* Logout Button */}
-                <button
-                    onClick={handleSubmit}
-                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition duration-200"
-                >
-                    LogOut
-                </button>
+
+                {/* Login-out Button */}
+
+                {user ? (
+                    <ul className='flex items-center space-x-3'>
+
+                        <li><img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740" alt="user" className='rounded-full w-6 h-6' /></li>
+                        <li><span>{firstName(userName)}</span></li>
+                        <li><button
+                            onClick={handleSubmit}
+                            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition duration-200"
+                        >
+                            LogOut
+                        </button></li>
+
+
+                    </ul>)
+                    :
+                    (<Link
+                        to="/login"
+                        className="hover:text-gray-300 transition duration-200"
+                    >
+                        Login
+                    </Link>)}
             </div>
         </nav>
     )

@@ -29,7 +29,6 @@ const Products = () => {
 
     return (
         <>
-            <div>//TODO cart count show</div>
             <nav>
                 <Navigation />
             </nav>
