@@ -76,9 +76,18 @@ const productSlice = createSlice({
             if (item) {
                 return item
             }
+        },
+        filterProduct(state, action) {
+            const searchItem = action.payload;
+            state.products = initialState.products.filter(item =>
+                item.name.toLowerCase().includes(searchItem.toLowerCase())
+            );
+        },
+        resetFilter(state) {
+            state.products = initialState.products
         }
     }
 })
 
-export const { openProduct } = productSlice.actions
+export const { openProduct, filterProduct, resetFilter } = productSlice.actions
 export const productsReducer = productSlice.reducer
