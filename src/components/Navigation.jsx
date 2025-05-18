@@ -43,6 +43,8 @@ function Navigation() {
                     >
                         Home
                     </Link>
+                    <Link to="/payment-process">payment-process </Link>
+                    <Link to="/payment-success"> payment-success</Link>
                     {/* <Link
                         to="/register"
                         className="hover:text-gray-300 transition duration-200"

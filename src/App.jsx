@@ -12,6 +12,10 @@ import { auth } from './firebase'
 import { setUser } from './store/auth/authSlice'
 import Cart from './components/Cart';
 import PrivateRoute from './routes/ProtectedRoute';
+import Payment from './components/Payment';
+import PaymentForm from './components/PaymentForm';
+import PaymentSuccess from './components/PaymentSuccess';
+import PaymentCancelled from './components/PaymentCancelled';
 
 
 function App() {
@@ -39,6 +43,10 @@ function App() {
               <Cart />
             </PrivateRoute>
           } />
+          <Route path='/payment-process' element={<PaymentForm />} />
+          <Route path='/payment' element={<Payment />} />
+          <Route path='/payment-success' element={<PaymentSuccess />} />
+          <Route path='/payment-cancelled' element={<PaymentCancelled />} />
         </Routes>
       </Router>
 

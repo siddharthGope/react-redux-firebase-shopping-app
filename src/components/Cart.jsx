@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { increaseQuantity, decreaseQuantity } from '../store/cartSlice'
+import { increaseQuantity, decreaseQuantity, selectedTotalPrice } from '../store/cartSlice'
+import { Link } from 'react-router';
+
 
 function Cart() {
 
     const dispatch = useDispatch()
-    const products = useSelector(state => state.cart.cart) || []
+    const products = useSelector(state => state.cart.cart)
+    const totalPrice = useSelector(selectedTotalPrice)
 
     const increaseQuantityHandler = (id) => dispatch(increaseQuantity(id))
     const decreaseQuantityHandler = (id) => dispatch(decreaseQuantity(id))
+
+    useEffect(() => {
+
+    }, []);
 
 
     return (
@@ -34,8 +41,17 @@ function Cart() {
                             </div>
 
                         </div>
+
                     ))
-                }</div>)}
+                }
+                    {
+                        totalPrice ? (
+                            <div>{totalPrice}
+                                <Link to='/payment'>Checkout</Link></div>
+                        ) : (null)
+                    }
+                </div>
+            )}
         </div>
     )
 }
