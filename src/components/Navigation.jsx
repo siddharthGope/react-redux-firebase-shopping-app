@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from "react-router";
 import { logoutUser } from '../store/auth/authActions';
-import { signOut } from 'firebase/auth';
-import { auth } from '../firebase';
-import { setError, setLoading, setUser } from "../store/auth/authSlice";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -43,7 +40,7 @@ function Navigation() {
                     >
                         Home
                     </Link>
-                    <Link to="/payment-process">payment-process </Link>
+                    <Link to="/payment-cancelled">payment-cancelled </Link>
                     <Link to="/payment-success"> payment-success</Link>
                     {/* <Link
                         to="/register"

@@ -28,8 +28,9 @@ const Home = () => {
             <nav>
                 <Navigation />
             </nav>
-            <div className="flex justify-end py-6 px-[5%] bg-gray-50">
-                <div className="flex items-center">
+            <div className="flex items-center justify-between py-6 px-[5%] bg-gray-50">
+                <h1 className="text-2xl font-bold text-gray-800">All Products</h1>
+                <div className="flex  items-center">
                     <h5 className="mr-3 text-lg font-semibold text-gray-700 text-center">Search Products</h5>
                     <div className="flex">
                         <input
