@@ -19,6 +19,10 @@ const cartSlice = createSlice({
             }
             state.cart.push(newItem)
         },
+        deleteProduct(state, action) {
+            console.log(action.payload);
+            state.cart = state.cart.filter(item => item.id !== action.payload)
+        },
         increaseQuantity(state, action) {
             const item = state.cart.find(product => product.id === action.payload)
             if (item) {
@@ -40,6 +44,6 @@ const selectedTotalPrice = createSelector(
     (items) => items.reduce((total, item) => total + item.price * item.quantity, 0)
 )
 
-export const { increaseQuantity, decreaseQuantity, addToCart } = cartSlice.actions
+export const { increaseQuantity, decreaseQuantity, addToCart, deleteProduct } = cartSlice.actions
 export const cartReducer = cartSlice.reducer
 export { selectedTotalPrice }
