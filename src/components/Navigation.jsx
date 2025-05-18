@@ -40,14 +40,14 @@ function Navigation() {
                     >
                         Home
                     </Link>
-                    <Link to="/payment-cancelled">payment-cancelled </Link>
-                    <Link to="/payment-success"> payment-success</Link>
-                    {/* <Link
+                    {/* <Link to="/payment-cancelled">payment-cancelled </Link>
+                    <Link to="/payment-success"> payment-success</Link> 
+                    <Link
                         to="/register"
                         className="hover:text-gray-300 transition duration-200"
                     >
                         Register
-                    </Link> */}
+                    </Link>*/}
                     <Link
                         to="/cart"
                         className="hover:text-gray-300 transition duration-200"

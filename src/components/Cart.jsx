@@ -16,7 +16,7 @@ function Cart() {
 
     const increaseQuantityHandler = (id) => dispatch(increaseQuantity(id));
     const decreaseQuantityHandler = (id) => dispatch(decreaseQuantity(id));
-    const deleteItem = (id) => dispatch(deleteProduct(id))
+    const deleteItem = (id) => dispatch(deleteProduct(id));
 
     return (
         <>
@@ -75,9 +75,19 @@ function Cart() {
                             </div>
                         ))}
                         {totalPrice ? (
-                            <div>
-                                {totalPrice}
-                                <Link to="/payment">Checkout</Link>
+                            <div className="flex items-center justify-between bg-gray-100 rounded-lg p-4 mt-2">
+                                <span className="text-2xl font-bold text-green-700"><span className="block text-xl font-semibold text-gray-800">
+                                    Total
+                                </span>
+
+                                    ₹{totalPrice}
+                                </span>
+                                <Link
+                                    to="/payment"
+                                    className="ml-4 px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow"
+                                >
+                                    Checkout
+                                </Link>
                             </div>
                         ) : null}
                     </div>
