@@ -2,7 +2,7 @@ import { createSelector, createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    cart: [{ id: 100, name: 'Iphone', price: 1000, quantity: 1, src: 'https://inspireonline.in/cdn/shop/files/iPhone_15_Pink_PDP_Image_Position-1__en-IN.jpg?v=1694605206' }]
+    cart: [{ id: 100, name: 'Iphone', price: 100000, quantity: 1, src: 'https://inspireonline.in/cdn/shop/files/iPhone_15_Pink_PDP_Image_Position-1__en-IN.jpg?v=1694605206' }]
 }
 
 const cartSlice = createSlice({

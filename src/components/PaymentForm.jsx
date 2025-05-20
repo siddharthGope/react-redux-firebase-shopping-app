@@ -1,5 +1,6 @@
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import React, { useState } from 'react'
+import Navigation from './Navigation';
 
 
 function PaymentForm() {
@@ -47,13 +48,16 @@ function PaymentForm() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <nav>
+                <Navigation />
+            </nav>
+            <form onSubmit={handleSubmit} className='mx-[5%]'>
                 <div className='card'>
                     <div className="card-body">
-                        <h1 className="card-title">Complete your payment here</h1>
+                        <h1 className="my-3 text-gray-700 text-lg">Complete your payment here</h1>
                         <PaymentElement options={PaymentElementOptions} />
                         <div className="card-actions">
-                            <button disabled={isLoading || !stripe || !elements}>
+                            <button disabled={isLoading || !stripe || !elements} className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow">
                                 {isLoading ? "Loading..." : "Pay now"}
                             </button>
                         </div>
